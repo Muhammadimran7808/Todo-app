@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    background: linear-gradient(#66E5CD, #4D89E4);
+
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.main {
+    background-color: #fff;
+    border-radius: .5rem;
+    padding: 2.2rem;
+}
+
+.main h1 {
+    font-size: 3rem;
+}
+
+.main .add-todo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 1.7rem;
+}
+
+.main .add-todo input {
+    padding: .8rem;
+    font-size: 1.8rem;
+    background: transparent;
+    border: 1.4px solid #cfcfcf;
+    border-radius: .3rem;
+}
+
+.main .add-todo .add-btn {
+    padding: .4rem;
+    width: 4.3rem;
+    text-align: center;
+    color: #fff;
+    font-weight: 900;
+    background-color: #8E49E9;
+    font-size: 2.5rem;
+    border-radius: .3rem;
+    margin-left: .5rem;
+}
+
+.main .todo-list {
+    margin-top: 1.5rem;
+    background-color: red;
+}
+
+
+.main .todo-list .todo {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: .8rem;
+    width: 100%;
+    font-size: 2rem;
+    background-color: #F3F3F3;
+}
+
+.main .todo-list .delete-btn {
+    padding: .4rem;
+    width: 4.3rem;
+    text-align: center;
+    color: #fff;
+    font-weight: 900;
+    background-color: #E74D3D;
+    font-size: 2rem;
+    border-radius: .3rem;
+    margin: 0 -.9rem 0 .5rem;
+}
+
+.main .todo-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.main .todo-info .info {
+    font-size: 1.8rem;
+    color: dimgrey;
+}
+
+.main .todo-info button {
+    padding: .4rem;
+    width: 9rem;
+    text-align: center;
+    color: #fff;
+    background-color: #8E49E9;
+    font-size: 1.5rem;
+    border-radius: .3rem;
+}
