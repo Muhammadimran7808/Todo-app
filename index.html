@@ -16,29 +16,23 @@
         <h1>Todo App</h1>
         <div class="add-todo">
             <input type="text" id="todo" placeholder="Add you new todo"></input>
-            <div class="add-btn">
+            <div title="Add todo" class="add-btn">
                 <i class="fa-solid fa-plus"></i>
             </div>
         </div>
 
         <div class="todo-list">
-            <div class="todo">
-                <p>bay a laptop</p>
-                <div class="delete-btn">
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
         </div>
 
         <div class="todo-info">
             <div class="info">
-                ydoxgdbocc
+               <p>You have <span id="tasks"></span> pending tasks</p>
             </div>
-            <button>Clear All</button>
+            <button id="clear" onclick="localStorage.clear()"style="border-style: none;">Clear All</button>
         </div>
     </div>
-    <script src="script.js"></script>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
