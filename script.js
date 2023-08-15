@@ -1,70 +1,57 @@
-let addBtn = document.getElementsByClassName("add-btn")[0]
-let todoList = document.getElementsByClassName("todo-list")[0]
-let input = document.getElementById("todo")
-let inputTodo = ""
-if(localStorage.length === 0){
-    var counter = 0;
-}
-else{
-    counter = (localStorage.length)
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const todoInput = document.getElementById("todoInput");
+    const addBtn = document.getElementById("addBtn");
+    const todoList = document.getElementById("todoList");
+    const deleteAllBtn = document.getElementById("clear")
+    const tasks = document.getElementById("tasks")
 
+    // Load todos from local storage if available
+    const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-document.body.onload = ()=>{
-    for (let i = 0; i < localStorage.length; i++) {
-
-        inputTodo += `
-        <div class="todo">
-                <p>${localStorage.getItem(i)}</p>
-                <div id="${i}" title="Delete todo" class="delete-btn">
-                <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
-            `
-        todoList.innerHTML = inputTodo
-        input.value = ""
+    function renderTodos() {
+        todoList.innerHTML = "";
+        todos.forEach((todo, index) => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+        ${todo}
+        <button class="delete-btn" data-index="${index}">Delete</button>`;
+            todoList.appendChild(li);
+        });
     }
-}
 
+    renderTodos();
+    countTodo();
 
+    addBtn.addEventListener("click", function () {
+        const newTodo = todoInput.value.trim();
+        if (newTodo !== "") {
+            todos.push(newTodo);
+            localStorage.setItem("todos", JSON.stringify(todos));
+            renderTodos();
+            countTodo();
+            todoInput.value = "";
+        }
+    });
 
+    todoList.addEventListener("click", function (e) {
+        if (e.target.classList.contains("delete-btn")) {
+            const index = e.target.getAttribute("data-index");
+            todos.splice(index, 1);
+            localStorage.setItem("todos", JSON.stringify(todos));
+            renderTodos();
+            countTodo();
+        }
+    });
 
-
-
-
-
-
-addBtn.addEventListener("click", () => {
-    if (input.value == "") { }
-    else {
-        localStorage.setItem(`${counter}`,input.value)
-        inputTodo += `
-        <div class="todo">
-                <p>${localStorage.getItem(counter)}</p>
-                <div id="${counter}" class="delete-btn" title="Delete todo">
-                <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
-            `
-    }
-    counter +=1
-    todoList.innerHTML = inputTodo
-    input.value = ""
-})
-
-let deleteBtn = document.getElementsByClassName("delete-btn")
-let d = Array.from(deleteBtn)
-for (let i of d) {
-    i.addEventListener('click', () => {
-        // localStorage.removeItem()
-        console.log("jbubb "+i.id)
+    
+    deleteAllBtn.addEventListener('click', ()=>{
+        todos.length = 0;
+        localStorage.removeItem("todos");
+        renderTodos();
+        countTodo();
     })
-}
 
-
-let tasks = document.getElementById("tasks")
-tasks.innerHTML = localStorage.length
-document.addEventListener('click',()=>{
-    tasks.innerHTML = localStorage.length
-})
-
+    function countTodo(){
+        tasks.innerHTML = todos.length
+    }
+});

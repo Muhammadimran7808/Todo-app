@@ -1,0 +1,87 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    background: linear-gradient(#f8eded, #c9e0e0);
+
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 30rem;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    margin: 3rem auto;
+    border-radius: .2rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+.todo-info {
+    border-top: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+    margin-top: 3rem;
+}
+
+#clear {
+    padding: .7rem 1rem;
+    text-align: center;
+    color: #fff;
+    background-color: rgb(251, 56, 56);
+    font-size: 1rem;
+    border-radius: .3rem;
+}
